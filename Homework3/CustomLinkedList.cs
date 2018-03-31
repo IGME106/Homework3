@@ -65,34 +65,6 @@ namespace Homework3
         }
 
         /// <summary>
-        /// Print the data contained in the node at the specified index
-        /// </summary>
-        /// <param name="index">The index of the data requested</param>
-        /// <returns></returns>
-        public string GetData(int index)
-        {
-            string returnValue = null;
-
-            CustomNode current = Head;
-
-            if ((index < 0) || (index >= Count))
-            {
-                throw new IndexOutOfRangeException("\n*** The index provided is out of bounds, please enter an index >= 0 and < " + Count + " ***\n");
-            }
-            else
-            {
-                for (int i = 0; i < index; i++)
-                {
-                    current = current.Next;
-                }
-
-                returnValue = current.Data;
-            }
-
-            return returnValue;
-        }
-
-        /// <summary>
         /// Insert an entry at the index provided
         /// </summary>
         /// <param name="data">Data to insert</param>
@@ -110,7 +82,7 @@ namespace Homework3
             else
             {
                 CustomNode current = Head;
-                
+
                 for (int i = 0; i < (index - 1); i++)
                 {
                     current = current.Next;
@@ -171,6 +143,34 @@ namespace Homework3
             }
 
             Count--;
+
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Print the data contained in the node at the specified index
+        /// </summary>
+        /// <param name="index">The index of the data requested</param>
+        /// <returns></returns>
+        public string GetData(int index)
+        {
+            string returnValue = null;
+
+            CustomNode current = Head;
+
+            if ((index < 0) || (index >= Count))
+            {
+                throw new IndexOutOfRangeException("\n*** The index provided is out of bounds, please enter an index >= 0 and < " + Count + " ***\n");
+            }
+            else
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    current = current.Next;
+                }
+
+                returnValue = current.Data;
+            }
 
             return returnValue;
         }
